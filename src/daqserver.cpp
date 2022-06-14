@@ -321,7 +321,7 @@ void daqserver::ProcessCmdReceived(char* msg){
 
         // ignore consecutive Start commands
         if(kStart){
-          char* tempStr = "Consecutive starts received. Ignoring last command.";
+          char* tempStr = "Already in START state. Ignoring last command.";
           printf("%s) %s\n", __METHOD_NAME__, tempStr);
           ReplyToCmd(tempStr);
           return;
@@ -364,10 +364,19 @@ void daqserver::ProcessCmdReceived(char* msg){
         //Spawn a thread to read events. Stop() will join the thread
         nEvents = 0;
         //_3d = std::thread(&daqserver::Start, this, sruntype, runnum, unixtime);
+        
+        kStart = true;
         ReplyToCmd(msg);
       }
       else if(strcmp(stop,cmdgroup[2])==0) {//stop daq
         printf("%s) Stop()\n", __METHOD_NAME__);
+        // ignore consecutive Start commands
+        if(!kStart){
+          char* tempStr = "Already in STOP state. Ignoring the command.";
+          printf("%s) %s\n", __METHOD_NAME__, tempStr);
+          ReplyToCmd(tempStr);
+          return;
+        }
         Stop();
         ReplyToCmd(msg);
       }
@@ -564,19 +573,15 @@ void daqserver::Start(char* runtype, uint32_t runnum, uint32_t unixtime) {
 
 void daqserver::Stop() {
   if(kStart){
+    //FIX ME: metterci un while che fa N GetEvent()
     kStart = false;
-    printf("Joining thread...\n");
-    _3d.join();
-    printf("...joined\n");
+    SetMode(0);
+    maka->runStop();
+    runStop();
+    sleep(10);
   }
-  SetMode(0);
-  maka->runStop();
-  runStop();
-  sleep(10);
-
-  //FIX ME: metterci un while che fa N GetEvent()
   
-  if (kVerbosity > 0) printf("%s) Thread stopped succesfully\n", __METHOD_NAME__);
+  if (kVerbosity > 0) printf("%s) Run stopped succesfully\n", __METHOD_NAME__);
 }
 
 void daqserver::runStart(){
