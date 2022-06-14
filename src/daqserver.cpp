@@ -318,6 +318,15 @@ void daqserver::ProcessCmdReceived(char* msg){
     if (strcmp(btcmd, cmdgroup[0])==0) {//is a chinese command
       if (strcmp(start,cmdgroup[2])==0) {//start daq
 	      printf("%s) Start()\n", __METHOD_NAME__);
+
+        // ignore consecutive Start commands
+        if(kStart){
+          char* tempStr = "Consecutive starts received. Ignoring last command.";
+          printf("%s) %s\n", __METHOD_NAME__, tempStr);
+          ReplyToCmd(tempStr);
+          return;
+        }
+
 	      char runtype[32] = "";
 	      strncpy(runtype, &cmdgroup[1][4], 4);
 	      char sruntype[32] = "";
@@ -335,13 +344,6 @@ void daqserver::ProcessCmdReceived(char* msg){
 	        printf("%s) Not a valid run type %s\n", __METHOD_NAME__, runtype);
 	        sprintf(sruntype, "????");
 	      }
-
-        // ignore consecutive Start commands
-        if(kStart){
-          char* tempStr = "Consecutive starts received. Ignoring last command.";
-          ReplyToCmd(tempStr);
-          return;
-        }
 
         char srunnum[32] = "";
         strncpy(srunnum,  &cmdgroup[1][0], 4);
