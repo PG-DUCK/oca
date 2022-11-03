@@ -44,7 +44,7 @@
     <td class="tg-h47o" colspan="32">Known word:   0xB01ADEEE</td>
   </tr>
   <tr>
-    <td class="tg-h47o" colspan="32">UNIX time of the   run</td>
+    <td class="tg-h47o" colspan="32">UNIX time of the run</td>
   </tr>
   <tr>
     <td class="tg-h47o" colspan="32">MAKA git hash</td>
@@ -52,7 +52,7 @@
   <tr>
     <td class="tg-h47o" colspan="4">Type</td>
     <td class="tg-h47o" colspan="12">Data Version</td>
-    <td class="tg-h47o" colspan="16" rowspan="2">Detectors connected</td>
+    <td class="tg-h47o" colspan="16" rowspan="2">Boards connected</td>
   </tr>
   <tr>
     <td class="tg-h47o">tc</td>
@@ -64,11 +64,11 @@
     <td class="tg-h47o" colspan="4">Patch</td>
   </tr>
   <tr>
-    <td class="tg-h47o" colspan="16">Detector ID 1</td>
-    <td class="tg-h47o" colspan="16">Detector ID 0</td>
+    <td class="tg-h47o" colspan="16">Board ID 1</td>
+    <td class="tg-h47o" colspan="16">Board ID 0</td>
   </tr>
   <tr>
-    <td class="tg-h47o" colspan="16">Detector ID N-1</td>
+    <td class="tg-h47o" colspan="16">Board ID N-1</td>
     <td class="tg-h47o" colspan="16">…</td>
   </tr>
 </tbody>
@@ -126,7 +126,7 @@
   <tr>
     <td class="tg-h47o" colspan="4">Type</td>
     <td class="tg-h47o" colspan="12">Status</td>
-    <td class="tg-h47o" colspan="16">Detectors in the event</td>
+    <td class="tg-h47o" colspan="16">Boards in the event</td>
   </tr>
   <tr>
     <td class="tg-vhtn" colspan="32">Payload 0</td>
@@ -181,7 +181,7 @@
 </thead>
 <tbody>
   <tr>
-    <td class="tg-3ygc" colspan="32">Known word:&nbsp;&nbsp;&nbsp;0xBABA1A9A</td>
+    <td class="tg-3ygc" colspan="32">Known word:   0xBABA1A9A</td>
   </tr>
   <tr>
     <td class="tg-3ygc" colspan="32">Length</td>
@@ -198,19 +198,19 @@
   </tr>
   <tr>
     <td class="tg-3ygc" colspan="8">Type</td>
-    <td class="tg-3ygc" colspan="8">Progressive&nbsp;&nbsp;&nbsp;number</td>
+    <td class="tg-3ygc" colspan="8">Progressive number</td>
   </tr>
   <tr>
-    <td class="tg-3ygc" colspan="32">Internal Timestamp&nbsp;&nbsp;&nbsp;[63:32]</td>
+    <td class="tg-3ygc" colspan="32">Internal Timestamp [63:32]</td>
   </tr>
   <tr>
-    <td class="tg-3ygc" colspan="32">Internal Timestamp&nbsp;&nbsp;&nbsp;[31:0]</td>
+    <td class="tg-3ygc" colspan="32">Internal Timestamp [31:0]</td>
   </tr>
   <tr>
-    <td class="tg-3ygc" colspan="32">External Timestamp&nbsp;&nbsp;&nbsp;[63:32]</td>
+    <td class="tg-3ygc" colspan="32">External Timestamp [63:32]</td>
   </tr>
   <tr>
-    <td class="tg-3ygc" colspan="32">External Timestamp&nbsp;&nbsp;&nbsp;[31:0]</td>
+    <td class="tg-3ygc" colspan="32">External Timestamp [31:0]</td>
   </tr>
   <tr>
     <td class="tg-vxga" colspan="32">Payload 0</td>
@@ -225,7 +225,7 @@
     <td class="tg-i93t" colspan="32">Known word: 0x0BEDFACE</td>
   </tr>
   <tr>
-    <td class="tg-i93t" colspan="32">CRC-32 / MPEG-2, init: 0xFFFFFFFF</td>
+    <td class="tg-i93t" colspan="32">CRC-32, init: 0xFFFFFFFF</td>
   </tr>
 </tbody>
 </table>
